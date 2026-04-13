@@ -27,7 +27,7 @@ class TextNode:
 def text_node_to_html_node(text_node):
     t = text_node.text_type
 
-    if t == TextType.PLAIN:
+    if t == TextType.TEXT:
         return  LeafNode(None, text_node.text)
     elif t == TextType.BOLD:
         return LeafNode("b", text_node.text)
