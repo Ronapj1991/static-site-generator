@@ -23,5 +23,25 @@ class TestMarkdownBlocks(unittest.TestCase):
                 ],
             )
 
+        def test_heading(self):
+            block = "## Hello"
+            self.assertEqual(block_to_block_type(block), BlockType.heading)
+
+        def test_code(self):
+            block = "```\nHello\n```"
+            self.assertEqual(block_to_block_type(block), BlockType.code)
+
+        def test_quote(self):
+            block = "> Hello`"
+            self.assertEqual(block_to_block_type(block), BlockType.quote)
+
+        def test_ul(self):
+            block = "- Hello "
+            self.assertEqual(block_to_block_type(block), BlockType.unordered_list)
+
+        def test_ol(self):
+            block = "1. Hello"
+            self.assertEqual(block_to_block_type(block), BlockType.ordered_list)
+
 if __name__ == 'main':
     unittest.main()
